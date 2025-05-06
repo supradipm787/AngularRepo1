@@ -1,0 +1,25 @@
+
+
+
+    <div>
+        <p>Appointment-list works!</p>
+        <input [(ngModel)]= "appointmentTitle"  placeholder="Appointmnet Title">  
+        <input [(ngModel)]= "appointmentName"  placeholder="Appointmnet Name">    
+        <!-- <input type="date" [value]="appointment.date | date:'yyyy-MM-dd'"> -->
+        <input [(ngModel)]="selectedDate" type="date" id="date" name="selectedDate" />
+        <!-- <input [(ngModel)]= "appointmentDate" type="date" placeholder="AppointmnetDate">-->
+        
+        <button (click)="addAppointment()">Add</button>        
+    
+        <ul>
+            <li *ngFor="let appointment of appointments">
+                {{appointment.id}} {{appointment.title}} {{appointment.name}} {{appointment.date | date:'yyyy-MM-dd'}}
+        
+            </li>
+        </ul>
+
+    </div>
+  
+
+
+
