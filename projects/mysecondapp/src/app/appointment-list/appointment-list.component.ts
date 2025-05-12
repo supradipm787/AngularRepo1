@@ -3,6 +3,7 @@ import {Appointment} from '../models/appointment';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DatePipe } from '@angular/common';
+//import { CoursesListComponent } from '../courses-list/courses-list.component';
 
 @Component({
   selector: 'app-appointment-list',
@@ -30,7 +31,7 @@ addAppointment(){
        title: this.appointmentTitle,
        name: this.appointmentName,
       
-       date: new Date(this.selectedDate)
+       date: new Date(this.selectedDate),
        //this.datePipe.transform(this.selectedDate, 'yyyy-MM-dd') as Date,       
      }
      this.appointments.push (newAppointmnet)
