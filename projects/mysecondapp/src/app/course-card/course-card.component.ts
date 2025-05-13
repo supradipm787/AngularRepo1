@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CurrencyPipe, NgStyle } from '@angular/common';
 
 @Component({
@@ -10,4 +10,11 @@ import { CurrencyPipe, NgStyle } from '@angular/common';
 })
 export class CourseCardComponent {
  @Input() course: any ;
+ @Output() wishListAdded = new EventEmitter<any>();
+
+  onAddToWishList(): void {
+    console.log("Course added to wishlist on Child: ", this.course);  
+    this.wishListAdded.emit(this.course);
+    
+  }
 }

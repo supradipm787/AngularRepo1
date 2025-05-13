@@ -2,6 +2,8 @@ import { CurrencyPipe, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { CourseCardComponent } from '../course-card/course-card.component';
+import { Course } from '../models/course.model';
+import { CourseService } from '../services/course.service';
 
 
 @Component({
@@ -13,15 +15,24 @@ import { CourseCardComponent } from '../course-card/course-card.component';
 })
 export class CoursesListComponent implements OnInit {
   title: string = "Courses List";
-  courses = [
-    {id: 1, name: 'Angular', price:4300, description: 'Angular Course', date:'2023-10-01', soldOut:true, img:'/assets/angularLogo.png' , onSale: true},
-    {id: 2, name: 'Angular Advanced', price: 5000, description: 'Angular Advanced Course', date:'2023-10-01', soldOut:true, img:'/assets/angularLogo.png', onSale: false},
-    {id: 3, name: 'Angular', price:4300, description: 'Angular Course', date:'2023-10-01', soldOut:true, img:'/assets/angularLogo.png', onSale: true}, 
-    {id: 4, name: 'Angular Advanced', price: 5000, description: 'Angular Advanced Course', date:'2023-10-01', soldOut:true, img:'/assets/angularLogo.png', onSale: false},   
-    {id: 5, name: 'Angular', price:4300, description: 'Angular Course', date:'2023-10-01', soldOut:true, img:'/assets/angularLogo.png' , onSale: true},
-  ]
-  ngOnInit() : void {
-    console.log("Courses List Component Initialized");
+  wishList: Course[] = [];
+  courses: Course[] = [];
+  
+  constructor(private courseService : CourseService) { 
+    
+    console.log("Courses List Component Constructor");
   }
 
+  ngOnInit() : void {
+    console.log("Courses List Component Initialized");
+    this.courses = this.courseService.getCourses();
+  }
+  
+  onWishListAdded(course: any): void {
+    console.log("Course added to wishlist on Parent: ", course);
+    this.wishList.push(course); 
+  }
+  
 }
+
+

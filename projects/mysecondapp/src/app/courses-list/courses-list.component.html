@@ -1,21 +1,18 @@
 <h2> {{title}}</h2>
-@for (course of courses ; track course.id) {    
-    <app-course-card [course]="course"></app-course-card>
-    
-    <!-- <div class="course-item">
-        <h2>{{course.id}}</h2> 
-        <p>{{course.name}}</p> 
-        <p>{{course.price | currency : 'INR'}}</p>
-        <p>{{course.date}}</p> 
-        <p [hidden] = !course.soldOut> Sold Out</p> 
-        <img [ngStyle]="{'border': course.soldOut ? '50px solid brown' : 'none'}" [src]="course.img" [alt]="course.name" width="100" height="100" />
-        @if (course.price < 50) {
-           <div class="course-item">Special Offer</div> 
+@if (wishList.length > 0) {
+   <div class="wishlist-banner">
+        My WishList:
+        @for (course of wishList ; track course.id) {        
+            <span class="wishlist-item"> {{course.name}} </span>             
         }
-        @if (course.onSale) {
-            <div class="course-item">On Sale</div> 
-         }
-        <button>View Details</button>
-    </div> -->
+    </div>
+}
+
+    
+
+@for (course of courses ; track course.id) {    
+    <app-course-card [course]="course" (wishListAdded)="onWishListAdded($event)" ></app-course-card>
+    
+ 
 }
 
