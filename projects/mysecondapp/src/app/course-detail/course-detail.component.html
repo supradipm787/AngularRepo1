@@ -1,0 +1,14 @@
+<p>course-detail works here!</p>
+
+<button (click)="loadCourseById(2)">LoadCourseWithId1</button> 
+<br/>
+@if(course){
+    <div>
+        <img [ngStyle]="{'border': course.soldOut ? '50px solid brown' : '50px solid brown'}" [src]="course.img" [alt]="course.name" width="100" height="100" />   
+        <h2>{{course.id}}</h2> 
+        <p>{{course.name}}</p> 
+         <p>{{course.description}}</p> 
+        <p>{{course.price | currency : 'INR'}}</p>
+        <p>{{course.date}}</p> 
+    </div> 
+}  

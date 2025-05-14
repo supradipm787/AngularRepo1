@@ -17,7 +17,8 @@ export class CoursesListComponent implements OnInit {
   title: string = "Courses List";
   wishList: Course[] = [];
   courses: Course[] = [];
-  
+  course!: Course;
+
   constructor(private courseService : CourseService) { 
     
     console.log("Courses List Component Constructor");
@@ -25,7 +26,28 @@ export class CoursesListComponent implements OnInit {
 
   ngOnInit() : void {
     console.log("Courses List Component Initialized");
-    this.courses = this.courseService.getCourses();
+    //this.courses = this.courseService.getCourses();
+    this.courseService.getCourses().subscribe({
+      next : (data : Course[]) => {
+      this.courses = data;
+      },
+    error : err => {
+      console.error("Error fetching courses: ", err);
+      }
+      
+    });
+    
+    this.courseService.getCourseById(1).subscribe({
+      next : (data : Course) => {
+        console.log("Course with ID 1: ", data);
+        this.course = data;
+      },
+      error : err => {
+        console.error("Error fetching course by ID: ", err);
+      }
+    });
+  
+  
   }
   
   onWishListAdded(course: any): void {
