@@ -1,13 +1,19 @@
 
 <!-- <app-root> </app-root> -->
-<div>
-  <p>This is app component html</p>
+ <p>This is app component html</p>
+<!-- <div>
+  
   <app-courses-list></app-courses-list>
   <app-course-detail></app-course-detail>
-  </div>
-  
+</div> -->
+  <nav>
+    <a routerLink="/courses" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}">Courses</a>
+    <a routerLink="/courses/1" routerLinkActive="active">Course Details</a>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+   
+  </nav>
 
-  <!-- <router-outlet /> -->
+  <router-outlet /> 
 
 
 <!--</app-root> -->

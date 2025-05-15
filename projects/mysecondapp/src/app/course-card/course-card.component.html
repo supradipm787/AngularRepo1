@@ -2,6 +2,7 @@
     <div class="course-card">
         <img [ngStyle]="{'border': course.soldOut ? '50px solid brown' : '50px solid brown'}" [src]="course.img" [alt]="course.name" width="100" height="100" />   
         <h2>{{course.id}}</h2> 
+        <p>{{course.title}}</p> 
         <p>{{course.name}}</p> 
          <p>{{course.description}}</p> 
         <p>{{course.price | currency : 'INR'}}</p>
@@ -15,6 +16,8 @@
             <div class="course-item">On Sale</div> 
          }
         <button>View Details</button> 
+        <label>  </label>
         <button (click)="onAddToWishList()">Add to Wish List</button> 
+        <button (click)="gotoDetails(course.id)">See Details</button> 
     </div>
 

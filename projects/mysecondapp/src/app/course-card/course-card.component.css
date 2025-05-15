@@ -27,14 +27,14 @@ h3 {
 }
 
 button {
-    background-color: #007bff;
+    background-color: brown;
     color:white;
-    border: none;
+    border: brown;
     padding: 0.5rem 1rem;
     cursor: pointer;
-    margin-right: 1 rem;
+    margin-right: 1rem;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: brown;
 }

@@ -4,6 +4,7 @@ import { OnInit } from '@angular/core';
 import { CourseCardComponent } from '../course-card/course-card.component';
 import { Course } from '../models/course.model';
 import { CourseService } from '../services/course.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -19,39 +20,37 @@ export class CoursesListComponent implements OnInit {
   courses: Course[] = [];
   course!: Course;
 
-  constructor(private courseService : CourseService) { 
+  constructor(private courseService : CourseService, private route: ActivatedRoute, private router: Router) { 
     
     console.log("Courses List Component Constructor");
   }
 
   ngOnInit() : void {
     console.log("Courses List Component Initialized");
-    //this.courses = this.courseService.getCourses();
-    this.courseService.getCourses().subscribe({
-      next : (data : Course[]) => {
-      this.courses = data;
-      },
-    error : err => {
-      console.error("Error fetching courses: ", err);
-      }
-      
-    });
     
-    this.courseService.getCourseById(1).subscribe({
-      next : (data : Course) => {
-        console.log("Course with ID 1: ", data);
-        this.course = data;
+    // Subscribe to the route parameters to get the course ID
+    this.route.queryParamMap.subscribe(params => {
+      const description = params.get('description');
+      console.log("Description from query params: ", description);
+      this.loadCourses(description);
+    });
+  }
+
+  loadCourses(description: string | null): void { 
+    console.log("Load Course: ", description);
+    this.courseService.getCourses(description).subscribe({
+      next : (data : Course[]) => {
+        this.courses = data;
+        console.log("Filtered Courses: ", this.courses);
       },
       error : err => {
-        console.error("Error fetching course by ID: ", err);
+        console.error("Error fetching courses: ", err);
       }
     });
-  
-  
   }
   
   onWishListAdded(course: any): void {
-    console.log("Course added to wishlist on Parent: ", course);
+    console.log("Course added to wishlist on Parent: ", course); 
     this.wishList.push(course); 
   }
   
