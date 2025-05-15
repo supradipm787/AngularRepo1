@@ -4,6 +4,7 @@ import { AppointmentListComponent } from './appointment-list/appointment-list.co
 import { CoursesListComponent } from './courses-list/courses-list.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { AboutComponent } from './about/about.component';
+import { SignuporgformComponent } from './signuporgform/signuporgform.component';
 
 export const routes: Routes = [
 
@@ -14,5 +15,7 @@ export const routes: Routes = [
     {path: 'courses', component: CoursesListComponent},
     {path: 'courses/:id', component: CourseDetailComponent},
     {path: 'about', component: AboutComponent},
+    {path: 'signup', component: SignuporgformComponent},
+    
 
 ];

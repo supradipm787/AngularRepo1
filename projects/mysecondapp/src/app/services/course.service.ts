@@ -17,12 +17,12 @@ export class CourseService {
     return this.http.get<Course>(`${this.baseUrl}/courses/${id}`);
   }
   
-  //get all courses : previous method
-  /*getCourses(): Observable<Course[]>{  
+  //get all courses without filter
+  getCourse(): Observable<Course[]>{  
     return this.http.get<Course[]>(`${this.baseUrl}/courses`); 
-  }**/
- 
-  //get all courses 
+  }
+
+  //get all courses with filter
   getCourses(description : string | null): Observable<Course[]>{  
     let url = `${this.baseUrl}/courses`;
     if (description) {
