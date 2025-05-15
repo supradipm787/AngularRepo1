@@ -12,7 +12,7 @@
     {
       "id": 2,
       "title": "Advanced Angular",
-      "description": "Deep dive into Angular",
+      "description": "Deep dive into Angular data binding",
       "price": 99,
       "date": "2025-04-10",
       "img": "assets/angularLogo.png",
