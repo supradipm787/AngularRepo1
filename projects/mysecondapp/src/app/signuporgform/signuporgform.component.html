@@ -1,5 +1,5 @@
 <h2> Sign up</h2>
-<form [formGroup]="signupForm" >
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="name">Name</label>
         <input type="text" id="name" formControlName="name" required>
@@ -37,9 +37,17 @@
         <label for="id">ID</label>
         <select id="id" formControlName="id" required>
             <option value="" >Select id</option>
-            @for (course of courses ; track course.id) {        
-                <option [value]="course.id"> {{course.id}} </option>             
-            }
+            @for (employee of employees ; track employee.id) {        
+                <option [value]="employee.id"> {{employee.id}} </option>             
+             }
+            <!-- <option value="6">6</option>
+            <option value="7">7</option>  
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option> -->
+              
         </select>
          @if(id?.invalid && (id?.dirty || id?.touched)) {
             <div class="error">
@@ -52,5 +60,15 @@
             </div>
         }
     </div>
-    <button type="submit" class="btn btn-primary">Sign Up</button>
+    <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+    @if (submissionError) {
+        <div class="error">
+            <p> {{submissionError}} </p>
+        </div>
+    }
+    @if (submissionSuccess) {
+        <div class="success">
+            <p> Thanking you for signing up We will employ you within 7 days</p>
+        </div>
+    }
 </form>

@@ -23,7 +23,7 @@ function saveData(data) {
 
 /* 
   =============
-  COURSES ROUTES
+  COURSES & Employees ROUTES
   =============
 */
 
@@ -39,6 +39,22 @@ app.get('/courses', (req, res) => {
             c.description.toLowerCase().includes(descriptionFilter.toLowerCase())
         );
     }
+
+    res.json(courses);
+});
+
+// Get all employees
+app.get('/employees', (req, res) => {
+    const data = loadData();
+    let courses = data.employees;
+
+    /**const descriptionFilter = req.query.description;
+    if (descriptionFilter) {
+        // Filter if the course's description includes the substring
+        courses = courses.filter(c =>
+            c.description.toLowerCase().includes(descriptionFilter.toLowerCase())
+        );
+    }**/
 
     res.json(courses);
 });
@@ -68,7 +84,7 @@ app.post('/courses', (req, res) => {
 
 /* 
   =============
-  STUDENTS ROUTES
+  STUDENTS & EMPLOYEES ROUTES
   =============
 */
 
@@ -87,6 +103,18 @@ app.post('/students', (req, res) => {
     data.students.push(newStudent);
     saveData(data);
     res.status(201).json(newStudent);
+});
+
+// Add a new Employee
+app.post('/employees', (req, res) => {
+    const data = loadData();
+    const newEmployee = req.body;
+    // Simple ID generation
+    //newEmployee.id = Date.now();
+    newEmployee.id = newEmployee.id;
+    data.employees.push(newEmployee);
+    saveData(data);
+    res.status(201).json(newEmployee);
 });
 
 // Add a course to a student's enrolledCourses
