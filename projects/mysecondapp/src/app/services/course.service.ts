@@ -15,7 +15,7 @@ export class CourseService {
 
   //add Employee
   addEmployee(employee: Employee): Observable<Employee> {
-    return this.http.post<Employee>(`${this.baseUrl}/employees`, employee);
+    return this.http.post<Employee>(`${this.baseUrl}/employee`, employee);
   }
 
   //get Course by Id

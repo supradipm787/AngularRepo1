@@ -46,7 +46,7 @@ app.get('/courses', (req, res) => {
 // Get all employees
 app.get('/employees', (req, res) => {
     const data = loadData();
-    let courses = data.employees;
+    let employees = data.employees;
 
     /**const descriptionFilter = req.query.description;
     if (descriptionFilter) {
@@ -56,7 +56,7 @@ app.get('/employees', (req, res) => {
         );
     }**/
 
-    res.json(courses);
+    res.json(employees);
 });
 
 // Get a course by ID
@@ -106,12 +106,12 @@ app.post('/students', (req, res) => {
 });
 
 // Add a new Employee
-app.post('/employees', (req, res) => {
+app.post('/employee', (req, res) => {
     const data = loadData();
     const newEmployee = req.body;
     // Simple ID generation
-    //newEmployee.id = Date.now();
-    newEmployee.id = newEmployee.id;
+    newEmployee.id = Date.now();
+    //newEmployee.id = newEmployee.id;
     data.employees.push(newEmployee);
     saveData(data);
     res.status(201).json(newEmployee);

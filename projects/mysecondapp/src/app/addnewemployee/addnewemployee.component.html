@@ -1,0 +1,26 @@
+<p>Add newemployee works</p>
+<h1> Employee Display</h1>
+
+<form>
+    <div>
+        <!-- <ul>
+            <li *ngFor="let employee of employees">
+                {{employee.id}} {{employee.email}} {{employee.name}} 
+        
+            </li>
+        </ul> -->
+
+        Employees:
+        <br/>
+        @for (employee of employees ; track employee.id) {  
+           <div>     
+                Employee Id : <span class="wishlist-item"> {{employee.id}} </span>  
+                Employee Name : <span class="wishlist-item"> {{employee.name}} </span>   
+                Employee Email : <span class="wishlist-item"> {{employee.email}} </span> 
+                <br/>   
+            </div>       
+        }
+       
+    </div>
+
+</form>
