@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-addnewemployee',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],  
   templateUrl: './addnewemployee.component.html',
   styleUrl: './addnewemployee.component.css'
 })
@@ -19,7 +19,7 @@ export class AddnewemployeeComponent {
     
       courses : Course [] = [];
       employees : Employee [] = [];
-    
+      currentTimestamp: number = 0;
       constructor (private fb : FormBuilder , private courseService : CourseService ) {}
         
       ngOnInit(): void {
@@ -50,6 +50,8 @@ export class AddnewemployeeComponent {
           console.error("Error fetching employees: ", err);
         }
       });
+
+      this.currentTimestamp = Date.now();
     
       }//end of ngOnInit
     

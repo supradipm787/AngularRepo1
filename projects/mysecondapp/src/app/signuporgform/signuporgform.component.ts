@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { OnInit } from '@angular/core';
 import { CourseService } from '../services/course.service';
@@ -10,7 +10,7 @@ import { Employee } from '../models/employee.model';
 @Component({
   selector: 'app-signuporgform',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './signuporgform.component.html',
   styleUrls: ['./signuporgform.component.css']
 })
@@ -21,10 +21,11 @@ export class SignuporgformComponent implements OnInit {
 
   courses : Course [] = [];
   employees : Employee [] = [];
-
+  currentTimestamp: number = 0;
   constructor (private fb : FormBuilder , private courseService : CourseService ) {}
     
   ngOnInit(): void {
+    this.currentTimestamp = Date.now();
     this.signupForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email, Validators.minLength(5)]],

@@ -110,7 +110,7 @@ app.post('/employee', (req, res) => {
     const data = loadData();
     const newEmployee = req.body;
     // Simple ID generation
-    newEmployee.id = Date.now();
+    //newEmployee.id = Date.now();
     //newEmployee.id = newEmployee.id;
     data.employees.push(newEmployee);
     saveData(data);

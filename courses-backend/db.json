@@ -7,7 +7,8 @@
       "price": 49,
       "date": "2025-03-01",
       "img": "assets/angularLogo.png",
-      "soldOut": false
+      "soldOut": false,
+      "name": ""
     },
     {
       "id": 2,
@@ -97,21 +98,26 @@
       "name": "Supradip",
       "email": "supradipm7@gmail.com",
       "id": "1747390133521"
-    },
-    {
-      "name": "Supradip M",
-      "email": "supradipcareer@gmail.com",
-      "id": "S1"
-    },
-    {
-      "name": "Supradip M",
-      "email": "supradipm7@gmail.com",
-      "id": "S2"
-    },
+    }, 
     {
       "name": "Supradip M",
       "email": "supradipcareer@gmail.com",
       "id": "S6"
+    },
+     {
+      "name": "Supradip M",
+      "email": "supradipcareer@gmail.com",
+      "id": "S7"
+    },
+     {
+      "name": "Supradip M",
+      "email": "supradipcareer@gmail.com",
+      "id": "S8"
+    },
+     {
+      "name": "Supradip M",
+      "email": "supradipcareer@gmail.com",
+      "id": "S9"
     },
     {
       "name": "Supradip M",
@@ -127,6 +133,31 @@
       "name": "Supradip Majumdar",
       "email": "supradipcareer@gmail.com",
       "id": 1747416597040
+    },
+    {
+      "name": "Supradip Majumdar",
+      "email": "supradipm7@gmail.com",
+      "id": 1748451908766
+    },
+    {
+      "name": "Abc",
+      "email": "supradipm7@gmail.com",
+      "id": 1748454419380
+    },
+    {
+      "name": "Supradip M",
+      "email": "supradipcareer@gmail.com",
+      "id": 1748454491914
+    },
+    {
+      "name": "Supradip M",
+      "email": "supradipcareer@gmail.com",
+      "id": 1748454779654
+    },
+    {
+      "name": "Supradip M",
+      "email": "supradipcareer@gmail.com",
+      "id": 1748455877100
     }
   ]
 }

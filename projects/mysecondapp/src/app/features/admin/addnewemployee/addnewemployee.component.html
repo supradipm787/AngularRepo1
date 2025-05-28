@@ -34,8 +34,9 @@
         }
     </div>
     <div class="form-group">
-        <label for="id">ID</label>
-        <select id="id" formControlName="id" required>
+        <label for="id">EmployeeID</label>
+        <input type="text" id="id" formControlName="id" [(ngModel)]="currentTimestamp" required readonly>
+        <!-- <select id="id" formControlName="id" required>
             <option value="" >Select id</option>
             @for (employee of employees ; track employee.id) {        
                 <option [value]="employee.id"> {{employee.id}} </option>             
@@ -48,7 +49,7 @@
             <option value="S11">S11</option>
             <option value="S12">S12</option> 
               
-        </select>
+        </select> -->
          @if(id?.invalid && (id?.dirty || id?.touched)) {
             <div class="error">
                 @if (id?.errors?.['required']) {
